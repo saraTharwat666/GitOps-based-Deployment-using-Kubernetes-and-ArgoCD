@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo
+  template:
+    metadata:
+      labels:
+        app: todo
+    spec:
+      containers:
+        - name: todo-app
+          image: saratharwat666/todo-app:latest
+          imagePullPolicy: Always   # دا عشان يجلب أحدث نسخة من Docker Hub
+          ports:
+            - containerPort: 4000
+          livenessProbe:           # الجزء الجديد: Health check للتأكد إن التطبيق شغال
+            httpGet:
+              path: /
+              port: 4000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          readinessProbe:          # الجزء الجديد: Health check للتأكد إن التطبيق جاهز للطلبات
+            httpGet:
+              path: /
+              port: 4000
+            initialDelaySeconds: 5
+            periodSeconds: 10
