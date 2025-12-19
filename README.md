@@ -1,70 +1,130 @@
+## DevOps Internship Assessment - Todo List Node.js Application
 
-## Documentation
+![Project Screenshot](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/487f548f-7ca6-4183-9443-c88c9f79c3f0)
 
-[Documentation](https://linktodocumentation)
+## Summary
+This project is a **Todo List web application** built with Node.js, Express.js, MongoDB, and Mongoose. It demonstrates a full DevOps workflow including Dockerization, CI/CD pipelines with GitHub Actions, VM provisioning with Ansible, container orchestration with Docker Compose, and optionally Kubernetes with ArgoCD for continuous deployment.
 
-📝 To-Do List nodeJs
+---
 
-The to-do list application is a web-based application that allows users to create and manage a list of tasks. The user interface consists of a form to add new tasks, a list of all tasks, and controls to mark tasks as complete or delete them.
+## Assessment Parts
 
-To create the application, Node.js is used to set up the server and handle the logic of the application. Express.js is used to create the routes for the application, allowing the user to interact with the application through a web browser. EJS is used to create the views for the application, allowing the user to see the list of tasks and the form to add new tasks. CSS is used to style the application, making it visually appealing and easy to use.
+### Part 1 (30 points)
+- **Clone the repository**
+```bash
+git clone https://github.com/Ankit6098/Todo-List-nodejs
+```
+- **Use your own MongoDB database** by configuring the `.env` file.
+```bash
+cp .env.example .env
+# Add your MongoDB URI
+```
+- **Dockerize the application** by creating a `Dockerfile`.
+- **CI Pipeline**: Use GitHub Actions to build the Docker image and push it to a **private Docker registry**.
 
-MongoDB and Mongoose are used to store the tasks in a database, allowing the user to add, delete, and update tasks as needed. Nodemon is used to monitor changes to the code and automatically restart the server, making it easy to develop and test the application.
+---
 
-When the user adds a new task using the form, Node.js and Express.js handle the request and store the task in the database using Mongoose. When the user views the list of tasks, EJS displays the tasks from the database in a list on the web page. When the user marks a task as complete or deletes a task, Node.js and Express.js handle the request and update the database using Mongoose.
+### Part 2 (30 points)
+- **Create a Linux VM** locally or on the cloud.
+- **Use Ansible** to configure the VM and install packages such as Docker.
+- **Run Ansible from your local machine** against the VM.
 
-Overall, the todo list application using Node.js, Express.js, EJS, CSS, JavaScript, MongoDB, Mongoose, and Nodemon can be a great way to create a functional and interactive web application that allows users to manage their tasks online. With the right combination of technologies, it is possible to create an application that is both functional and aesthetically pleasing, making it easy for users to manage their tasks in a convenient and efficient way.
+---
 
-Technologies Used: NodeJS, ExpressJS, EJS, CSS, JavaScript, Nodemon, MongoDB, Mongoose.
+### Part 3 (40 points)
+- **Run the application on the VM using Docker Compose**.
+- **Configure health checks** to ensure the container is running properly.
+- **Auto-update**: Continuously monitor for changes in the Docker image on the registry. If a new image is detected, pull the update automatically.  
+  > For the auto-update part, you can use any tool you like (e.g., watchtower for Docker) and justify your choice.
 
+---
+
+### Part 4 - Bonus (50 points)
+- **Use Kubernetes** instead of Docker Compose on the VM.
+- **Use ArgoCD** for continuous deployment and automated syncing with the repository.
+
+---
 
 ## Features
+- Create, update, and delete tasks
+- Persistent storage with MongoDB
+- Containerized deployment with Docker
+- Health checks for reliability
+- Optional: Kubernetes deployment with ArgoCD for CD
 
-- Create, Update, and Delete Tasks: Enable users to create new tasks, update existing tasks (e.g., mark as completed, edit task details), and delete tasks they no longer need.
-- Task Categories provides Implement the ability for users to categorize their tasks into different categories (e.g., work, personal, shopping) or assign labels/tags to tasks for better organization and filtering.
-- MongoDb to store your the user data
+---
+
+## Technologies Used
+- Node.js, Express.js, MongoDB, Mongoose  
+- Docker, Docker Compose, Kubernetes  
+- GitHub Actions, ArgoCD, Ansible  
+
+---
+
 ## Run Locally
-
-Clone the project
-
+1. Clone the repo
 ```bash
-  git clone https://github.com/Ankit6098/Todos-nodejs
+git clone https://github.com/saraTharwat666/GitOps-based-Deployment-using-Kubernetes-and-ArgoCD.git
+cd GitOps-based-Deployment-using-Kubernetes-and-ArgoCD
+```
+2. Install dependencies
+```bash
+npm install
+```
+3. Create `.env` file and set your MongoDB URI
+```bash
+cp .env.example .env
+```
+4. Run the server
+```bash
+npm start
 ```
 
-Go to the project directory and open index.html file
+---
 
+## Deployment
+### Docker Compose
 ```bash
-  cd Todos-nodejs
+docker-compose up -d
 ```
 
-Install the packages
-
+### Kubernetes (Bonus)
 ```bash
-  npm install / npm i
+kubectl apply -f k8s/mongo-deployment.yaml
+kubectl apply -f k8s/mongo-service.yaml
+kubectl apply -f k8s/todo-deployment.yaml
+kubectl apply -f k8s/todo-service.yaml
 ```
 
-Start the Server
+---
 
-```bash
-    npm start / nodemon start
-```
-## Acknowledgements
+## Demo
+Under process...
 
- - [nodemon](https://nodemon.io/)
- - [mongoDb](https://www.mongodb.com/)
- - [mongoose](https://mongoosejs.com/)
+---
 
+## Authors
+- Sara Tharwat - [GitHub](https://github.com/saraTharwat666)
+
+---
 
 ## Screenshots
+![Todo App Screenshot 1](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/487f548f-7ca6-4183-9443-c88c9f79c3f0)
+![Todo App Screenshot 2](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/25515d2e-1d72-498d-8044-59a01c6b9127)
+![Todo App Screenshot 3](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/316d15ca-1fe8-4581-80b1-fc316340bba6)
+![Todo App Screenshot 4](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/44a0c418-449e-446f-8a8e-3c4e14fca8bf)
+![Todo App Screenshot 5](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/2ee90ab0-95d4-44f4-80ac-b17b088ac1ce)
+![Todo App Screenshot 6](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/960ff353-1ce9-4ef8-94e4-10af09184fd2)
+![Todo App Screenshot 7](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/f5ffc3b8-480f-4d11-9a0b-c469e3c17e8e)
 
-![225232515-4c100b6b-52e4-40f8-a6d4-85e30dc2f5e7](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/487f548f-7ca6-4183-9443-c88c9f79c3f0)
-![225232960-da554f1f-ba4a-41f8-9856-edaebe339d76](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/25515d2e-1d72-498d-8044-59a01c6b9127)
-![225238829-05433362-5b16-454c-92d5-5e536fe6912e](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/316d15ca-1fe8-4581-80b1-fc316340bba6)
-![225239140-226f8eae-d8b8-4055-8a68-d85d523c2422](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/44a0c418-449e-446f-8a8e-3c4e14fca8bf)
-![225239221-caf86f3d-ef17-4d18-80a6-c72123ff5444](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/2ee90ab0-95d4-44f4-80ac-b17b088ac1ce)
-![225239406-98b7ba7d-df97-4d27-bb66-596a32187d87](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/960ff353-1ce9-4ef8-94e4-10af09184fd2)
-![225239841-4b5d77f0-4a54-4339-b6b3-b6a1be6776b5](https://github.com/Ankit6098/Todos-nodejs/assets/92246613/f5ffc3b8-480f-4d11-9a0b-c469e3c17e8e)
+---
 
-
-
-
+## Acknowledgements
+- [Node.js](https://nodejs.org/)  
+- [Express.js](https://expressjs.com/)  
+- [MongoDB](https://www.mongodb.com/)  
+- [Mongoose](https://mongoosejs.com/)  
+- [Docker](https://www.docker.com/)  
+- [Kubernetes](https://kubernetes.io/)  
+- [ArgoCD](https://argo-cd.readthedocs.io/)  
+- [Ansible](https://www.ansible.com/)
